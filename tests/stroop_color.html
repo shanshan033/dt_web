@@ -1,0 +1,140 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Stroop Task</title>
+    <link href="css/demo.css" rel="stylesheet" type="text/css">
+	<link href="attention_task.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <!--Framework-->
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui.js" type="text/javascript"></script>
+    <!--End Framework-->
+     <script src="js/jquery.ffform.js" type="text/javascript"></script>
+    
+<script type="text/javascript">
+	//Record the completing  time
+	 var timer = 0;
+     function clock() {
+     timer +=1;
+     document.getElementById("clock").value = timer;
+     }
+	 setInterval(clock,1000);
+
+	/* if one of button is clicked
+	 * Check whether the choice is correct
+	 * Then the page automatically jump to the next question 
+	 */
+	$(document).ready(function () {  
+		$('button').click(function(event){
+		var id = event.target.id
+		var string = "#" + id;
+		var heading_color = $("h1").css("color");
+		var button_choice = $(string).css("background");
+
+		// Alert whether the answer is correct (it will not be shown in the final version)
+		if (heading_color.substr(0, 12) == button_choice.substr(0, 12) ){
+			alert("You are right! ");
+		}
+		else{
+			alert("You are wrong! ");
+		}
+		// create random color
+		var list = ["Red", "Brown", "Blue", "Green", "Purple", "Black", "Orange"];
+		 var btn = new Array();
+
+		// The first button
+		var random = Math.floor(Math.random() * list.length + 1)-1; 
+     	btn.push(list[random])
+     	$("#btn1").css("background", list[random]);
+     	$("#btn1").text(list[random]);
+		list.splice(random, 1);
+
+		// The second button
+		var random = Math.floor(Math.random() * list.length + 1)-1;
+     	btn.push(list[random])
+     	$("#btn2").css("background", list[random]);
+     	$("#btn2").text(list[random]);
+		list.splice(random, 1);
+
+		// The third button
+     	var random = Math.floor(Math.random() * list.length + 1)-1;
+     	btn.push(list[random])
+     	$("#btn3").css("background", list[random]);
+     	$("#btn3").text(list[random]);
+     	list.splice(random, 1);
+
+     	// The fourth button
+     	var random = Math.floor(Math.random() * list.length + 1)-1;
+     	btn.push(list[random])
+     	$("#btn4").css("background", list[random]);
+     	$("#btn4").text(list[random]);
+     	 list.splice(random, 1);
+
+     	// Create the heading 
+		var random = Math.floor(Math.random() * 4 + 1)-1;
+		var h1 = btn[random];
+		$("h1").css("color",h1);
+		$("h1").text(list[random]);
+		});
+	});
+</script>
+
+<!--      <div class="task-explanation">
+        <h3> Task Description </h3>
+            <p> Choose the option that corresponds to the color of the test, rather than the meaning of the text.</p>   
+    </div>
+
+  <div class="timer">
+        <h3> Timer </h3>
+         <form>
+            <input type="text" id="clock" size="20" placeholder="0" />
+        </form> 
+    </div> -->
+
+
+
+</head>
+<body style="">
+
+	<div class="demos-buttons">
+        <h3>
+            Attention Task </h3>
+        <a href="#" class="submit active">Stroop Color</a><br />
+        <a href="#" class="submit">Mouse Tracking Task</a> 
+        <br>
+        <a href="dot_cancellation.html" class="submit">Dot Cancellation Task </a> 
+        <br>
+        <a href="#" class="submit">Trail Marking Task </a><br>
+    </div>
+<div class="container bounceIn animated center-in-center">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h1 class="display-1" style="color:green">
+				Red
+			</h1>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-6 column">
+			 <button id = "btn1" style = "background: red" type="button" class="btn btn-lg btn-block btn-info">Red</button>
+		</div>
+		<div class="col-md-6 column">
+			 <button id = "btn2" style = "background: green" type="button" class="btn btn-info btn-lg btn-block">Green</button>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-6 column">
+			 <button id = "btn3" style = "background: blue" type="button" class="btn btn-info btn-lg btn-block">Blue</button>
+		</div>
+		<div class="col-md-6 column">
+			 <button id = "btn4" style = "background: orange" type="button" class="btn btn-info btn-lg btn-block">Orange</button>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
