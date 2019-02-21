@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    <!-- load CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <!-- https://materializecss.com -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <!-- Template Mo style -->
+    
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+
+  
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="tm-parallax" style="background-image: url(img/login.png);"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <hr>
+            </div>
+        </div>
+
+        <form action="login.php" method="post" id="loginForm">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="tm-question-header">Username</h2>
+                    <input type="text" name="username" id="username" data-required="true" data-validation="text"
+                        data-msg="Invalid Name" placeholder="Ex: John Donga">
+                    <!-- <p>Please rate your current thermal sensation.</p> -->
+
+                    </div>
+
+                <div class="col-12">
+                    <h2 class="tm-question-header">Password</h2>
+                     <input type="password" name="password" id="password" data-required="true" data-validation="text"
+                        data-msg="Invalid Password" placeholder="Ex: 1234@lss">
+                </div> <!-- col-12 -->
+
+                <div class="col-12 text-center tm-submit-container">
+                    <button type="submit" name="submit" value = "submit" class="btn btn-primary tm-btn-submit">Login</button>
+                </div>
+
+                <div class="col-12">
+                    <hr>
+                </div>
+            </div> <!-- row -->
+
+            <div class="row">
+          <div class="col-12">
+                <footer>
+                    <p class="text-center mb-3 tm-footer-text">Never register before? <a href="register.html" target="_blank" title="Register">Register</a> </p>
+                </footer>
+            </div>
+        </div>
+
+        </form>
+    </div>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="js/materialize.min.js"></script> -->
+    <script>
+        /**
+         * detect IE
+         * returns version of IE or false, if browser is not Internet Explorer
+         */
+        function detectIE() {
+            var ua = window.navigator.userAgent;
+
+            var msie = ua.indexOf('MSIE ');
+            if (msie > 0) {
+                // IE 10 or older => return version number
+                return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+            }
+
+            var trident = ua.indexOf('Trident/');
+            if (trident > 0) {
+                // IE 11 => return version number
+                var rv = ua.indexOf('rv:');
+                return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+            }
+            return false;
+        }
+        // function login(){
+        //     var name =  $("#username").val();
+        //     var password = $("#password").val();
+        //     $.ajax({
+        //     type: "post",
+        //     url: "login.php",
+        //             dataType: "json", //回调函数接收数据的数据格式
+        //             data: {username:function() {
+        //                     return $("#username").val();
+        //                 }},                   
+        // })
+        // }
+
+        
+
+  $('form').submit(function(e){
+            var data = $(this).serialize();    //序列化表单
+            console.log(data);
+                                 //打印表单数据
+            e = e || window.event;
+            // e.preventDefault();                //阻止表单提交
+    });
+
+    // // jQury validation 
+    $().ready(function() {
+        $("#loginForm").validate({
+        rules: {
+            username: {
+                required: true,
+                minlength: 5,
+                remote:{
+                    type: "post",
+                    url: "userValidate.php",
+                    dataType: "json", //回调函数接收数据的数据格式
+                    data: {username:function() {
+                            return $("#username").val();}}                
+                }        
+            },
+            password: {
+                required: true,
+                minlength: 5,
+                remote:{
+                    type:"post",
+                    url: "passwordValidate.php",
+                    dataType: "json", //回调函数接收数据的数据格式
+                    data:{
+                        username:function() {
+                            return $("#username").val();},
+                          password:function () {
+                            return $("#password").val();}},                
+                }  
+
+            }
+        },
+
+        messages: {
+            username: {
+                required: "Please enter user name",
+                minlength: "the length of username must be greater than 5",
+                remote: "Username doesn't exist, please enter valid name"
+            },
+            password: {
+                required: "Please enter password",
+                minlength: "the length of password must be greater than 5",
+                remote: "Wrong Password, please enter valid password"
+            }
+        }
+        });
+    }); 
+    </script>
+
+    <style>
+.error{
+    color:red;
+}
+</style>
+</body>
+
+</html>
