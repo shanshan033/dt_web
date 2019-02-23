@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(empty($_SESSION["name"]))               //判断session里面是不是存储到值，如果没有存储，让其跳转到登录界面
+{
+    header("location:../login/login.html");
+    exit();
+}else{
+  $name = $_SESSION["name"];  
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,8 +41,8 @@
         <div class="row">
             <div class="tm-intro">
                 <div class="col-sm-12 col-md-12 mb-md-0 mb-4 tm-intro-left">
-                    <p class="mb-0">
-                        The aim of this project is to research what is the relationship between multiple temperatures and focus level. A website which contain a set of “attention level” tests will be designed and developed. The participants will be asked to complete the tests during a set of controlled experiments. All survey results is anonymous, please answer the following question in true. Thank you :)</p>
+                    <?php echo "<p class='mb-0'>Hello {$name},</br>
+                        Thank you for your coorporation. This questionnaire is aimed at deeply understanding the relationship between multiple temperatures and focus level. All survey results is anonymous, please answer the following question in true. Thank you :)</p> ";?>
                 </div>
             </div>
             <div class="col-12">
@@ -40,7 +50,7 @@
             </div>
         </div>
 
-        <form action="" method="post">
+        <form action="questionnaires.php" method="post">
             <div class="row">
                 <div class="col-12">
                     <h2 class="tm-question-header tm-question-header-mt">Question 1</h2>
@@ -90,31 +100,31 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a1" />
                                 <span>Very uncomfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a2" />
+                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a2" />
                                 <span>Slightly cncomfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                         <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a3" />
+                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a3" />
                                 <span>Natural</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a4" />
+                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a4" />
                                 <span>Slightly comfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a5" />
+                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a5" />
                                 <span>Very comfortable</span>
                             </div>
                         </label>
@@ -133,13 +143,13 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q3" type="radio" value="q3_a1" />
                                 <span>Yes</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a2" />
+                                <input class="tm-radio-group-1 with-gap" name="q3" type="radio" value="q3_a2" />
                                 <span>No</span>
                             </div>
                         </label>
@@ -156,31 +166,31 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
-                                <input type="checkbox" name="q2[]" class="filled-in tm-checkbox" value="q2_a1" />
+                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a1" />
                                 <span>Stroop Testing (Task1)</span>
                             </div>
-                            <img src="img/img-1x1-1.jpg" alt="Image" class="img-fluid">
+                            <img src="img/img-1x1-1.png" alt="Image" class="img-fluid" width = "200" height = "200">
                         </label>
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
-                                <input type="checkbox" name="q2[]" class="filled-in tm-checkbox" value="q2_a2" />
+                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a2" />
                                 <span>Trail Marking (Task2)</span>
                             </div>
-                            <img src="img/img-1x1-2.jpg" alt="Image" class="img-fluid">
+                            <img src="img/img-1x1-2.png" alt="Image" class="img-fluid" width = "200" height = "200">
                         </label>
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
-                                <input type="checkbox" name="q2[]" class="filled-in tm-checkbox" value="q2_a3" />
+                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a3" />
                                 <span>Dot Cancellation Test (Task3)</span>
                             </div>
-                            <img src="img/img-1x1-3.jpg" alt="Image" class="img-fluid">
+                            <img src="img/img-1x1-3.png" alt="Image" class="img-fluid" width = "200" height = "200">
                         </label>
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
-                                <input type="checkbox" name="q2[]" class="filled-in tm-checkbox" value="q2_a4" />
+                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a4" />
                                 <span>Mouse Tracking (Task 4)</span>
                             </div>
-                            <img src="img/img-1x1-4.jpg" alt="Image" class="img-fluid">
+                            <img src="img/img-1x1-4.png" alt="Image" class="img-fluid" width = "200" height = "200">
                         </label>
                     </div>
                 </div> <!-- col-12 -->
@@ -196,7 +206,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center tm-submit-container">
-                    <button type="submit" href="#" class="btn btn-primary tm-btn-submit">Submit</button>
+                    <button type="submit" name="submitB" class="btn btn-primary tm-btn-submit">Submit</button>
                 </div>
                 <div class="col-12">
                     <hr>

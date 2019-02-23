@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+if(empty($_SESSION["name"]))               //判断session里面是不是存储到值，如果没有存储，让其跳转到登录界面
+{
+    header("location:../login/login.html");
+    exit();
+}else{
+  $name = $_SESSION["name"];  
+}
+?>
 
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Image Survey HTML Form by templatemo</title>
+    <title>Questionaires A</title>
 
     <!-- load CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
@@ -17,8 +28,9 @@
     <!-- <link rel="stylesheet" href="css/all.min.css"> -->
     <!-- https://fontawesome.com/ -->
     <link rel="stylesheet" href="css/templatemo-style.css">
+
     <!-- Template Mo style -->
-    
+
 </head>
 
 <body>
@@ -31,7 +43,7 @@
         <div class="row">
             <div class="tm-intro">
                 <div class="col-sm-12 col-md-12 mb-md-0 mb-4 tm-intro-left">
-                    <p class="mb-0"> The aim of this project is to research what is the relationship between multiple temperatures and focus level. A website which contain a set of “attention level” tests will be designed and developed. The participants will be asked to complete the tests during a set of controlled experiments. All survey results is anonymous, please answer the following question in true. Thank you :) </p>
+                    <?php echo "</br><p class='mb-0'> Hello {$name},</br> The aim of this project is to research what is the relationship between multiple temperatures and focus level. A website which contain a set of “attention level” tests will be designed and developed. The participants will be asked to complete the tests during a set of controlled experiments. All survey results is anonymous, please answer the following question in true. Thank you :)</p>";?>
                 </div>
             </div>
             <div class="col-12">
@@ -39,7 +51,7 @@
             </div>
         </div>
 
-        <form action="" method="post">
+        <form action="questionnaires.php" method="post">
             <div class="row">
                 <div class="col-12">
                     <h2 class="tm-question-header">Question 1</h2>
@@ -47,7 +59,7 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" required = "required"/>
                                 <span>Yes</span>
                             </div>
                         </label>
@@ -70,13 +82,13 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a1" />
                                 <span>Yes</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a2" />
+                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a2" />
                                 <span>No</span>
                             </div>
                         </label>
@@ -93,13 +105,13 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q3" type="radio" value="q3_a1" />
                                 <span>Yes</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a2" />
+                                <input class="tm-radio-group-1 with-gap" name="q3" type="radio" value="q3_a2" />
                                 <span>No</span>
                             </div>
                         </label>
@@ -116,31 +128,31 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q4" type="radio" value="q4_a1" />
                                 <span>Cold</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a2" />
+                                <input class="tm-radio-group-1 with-gap" name="q4" type="radio" value="q4_a2" />
                                 <span>Cool</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                         <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a3" />
+                                <input class="tm-radio-group-1 with-gap" name="q4" type="radio" value="q4_a3" />
                                 <span>Natural</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a4" />
+                                <input class="tm-radio-group-1 with-gap" name="q4" type="radio" value="q4_a4" />
                                 <span>Warm</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a5" />
+                                <input class="tm-radio-group-1 with-gap" name="q4" type="radio" value="q4_a5" />
                                 <span>Hot</span>
                             </div>
                         </label>
@@ -158,31 +170,31 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a1" />
                                 <span>Very uncomfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a2" />
+                                <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a2" />
                                 <span>Slightly cncomfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                         <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a3" />
+                                <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a3" />
                                 <span>Natural</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a4" />
+                                <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a4" />
                                 <span>Slightly comfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a5" />
+                                <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a5" />
                                 <span>Very comfortable</span>
                             </div>
                         </label>
@@ -201,31 +213,31 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q6" type="radio" value="q6_a1" />
                                 <span>Very quiet</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a2" />
+                                <input class="tm-radio-group-1 with-gap" name="q6" type="radio" value="q6_a2" />
                                 <span>Slightly quiet</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                         <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a3" />
+                                <input class="tm-radio-group-1 with-gap" name="q6" type="radio" value="q6_a3" />
                                 <span>Natural</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a4" />
+                                <input class="tm-radio-group-1 with-gap" name="q6" type="radio" value="q6_a4" />
                                 <span>Slightly noisy</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a5" />
+                                <input class="tm-radio-group-1 with-gap" name="q6" type="radio" value="q6_a5" />
                                 <span>Very noisy</span>
                             </div>
                         </label>
@@ -242,31 +254,31 @@
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q7" type="radio" value="q7_a1" />
                                 <span>Very dim</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a2" />
+                                <input class="tm-radio-group-1 with-gap" name="q7" type="radio" value="q7_a2" />
                                 <span>Slightly dim</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                         <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a3" />
+                                <input class="tm-radio-group-1 with-gap" name="q7" type="radio" value="q7_a3" />
                                 <span>Natural</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a4" />
+                                <input class="tm-radio-group-1 with-gap" name="q7" type="radio" value="q7_a4" />
                                 <span>Slightly bright</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a5" />
+                                <input class="tm-radio-group-1 with-gap" name="q7" type="radio" value="q7_a5" />
                                 <span>Very bright</span>
                             </div>
                         </label>
@@ -284,7 +296,7 @@
                 </div>
 
                 <div class="col-12 text-center tm-submit-container">
-                    <button type="submit" href="#" class="btn btn-primary tm-btn-submit">Submit</button>
+                    <input type="submit" value = "Submit" name = "submitA" class="btn btn-primary tm-btn-submit">
                 </div>
                 <div class="col-12">
                     <hr>
@@ -351,20 +363,6 @@
             // Parallax image background
             background_image_parallax($(".tm-parallax"), 0.40);
 
-            // Darken image when its radio button is selected
-            $(".tm-radio-group-1").click(function () {
-                $('.tm-radio-group-1').parent().siblings("img").removeClass("darken");
-                $(this).parent().siblings("img").addClass("darken");
-            });
-
-            $(".tm-radio-group-2").click(function () {
-                $('.tm-radio-group-2').parent().siblings("img").removeClass("darken");
-                $(this).parent().siblings("img").addClass("darken");
-            });
-
-            $(".tm-checkbox").click(function () {
-                $(this).parent().siblings("img").toggleClass("darken");
-            })
         });
     </script>
 </body>
