@@ -42,7 +42,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
         </p>
 
          <p>
-           <a class="btn btn-primary btn-lg btn-block" href="stroop_color.html">Start Testing</a>
+           <a class="btn btn-primary btn-lg btn-block" href="stroop_color.php">Start Testing</a>
         </p>
       </div>
         
