@@ -1,0 +1,58 @@
+.center-in-center{   
+            /*position: absolute;   */
+            top: 25%;   
+            left: 15%;  
+} 
+
+.center-in-center-dot-cancellation{   
+            position: absolute;   
+            left: 25%;  
+} 
+.imgClass{
+	max-height: 50px;
+    max-width : 50px;
+}
+
+.task-explanation{
+	position:absolute;
+	width:250px;
+	z-index:999;
+	left:40px;
+	bottom: 100px;
+}
+.timer{
+	position:absolute;
+	width:250px;
+	z-index:999;
+	left:40px;
+	top: 200px;
+}
+
+.footer{
+position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: grey;
+  /*color: white;*/
+  text-align: center;
+  min-height: 40px;
+}
+
+.footer-name{
+	overflow: hidden;
+	/*min-height: 50px;*/
+	/*display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;*/
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding: 10px 0px 0px;
+}
