@@ -1,5 +1,5 @@
 .center-in-center{   
-            /*position: absolute;   */
+            position: absolute;   
             top: 25%;   
             left: 15%;  
 } 
@@ -56,3 +56,8 @@ position: fixed;
 	justify-content: space-between;
 	padding: 10px 0px 0px;
 }
+
+input.darken {
+  filter: brightness(50%);
+}
+
