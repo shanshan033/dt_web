@@ -1,4 +1,4 @@
-.center-in-center{   
+.center-in-center-task{   
             position: absolute;   
             top: 25%;   
             left: 15%;  
@@ -8,6 +8,13 @@
             position: absolute;   
             left: 25%;  
 } 
+
+.center-in-center-intro{   
+            position: absolute;  
+            top: 15%; 
+            left: 25%;
+} 
+
 .imgClass{
 	max-height: 50px;
     max-width : 50px;
