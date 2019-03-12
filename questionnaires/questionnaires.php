@@ -35,14 +35,15 @@
 
     //Insert data into database
     // Search user id matching user name
-    $q = "SELECT user_id FROM users WHERE user_name = '$name' ";
+    $q = "SELECT user_id, test_times FROM users WHERE user_name = '$name' ";
     $reslut = mysqli_query($con, $q);
     $row = mysqli_fetch_row($reslut);
     $id = $row[0];
+    $test_times = $row[1];
 
     // Insert questionnaires answer into 
 
-    $q="INSERT INTO questionnaire_a (user_id, user_name,question1, question2, question3, question4, question5, question6, question7, message, answer_time) VALUES ( $id,'$name', '$a1','$a2', '$a3', '$a4', '$a5', '$a6', '$a7', '$message', '$time')";
+    $q="INSERT INTO questionnaire_a (user_id, user_name, test_times, question1, question2, question3, question4, question5, question6, question7, message, answer_time) VALUES ( $id,'$name', $test_times,'$a1','$a2', '$a3', '$a4', '$a5', '$a6', '$a7', '$message', '$time')";
 
     // echo $q;
 
@@ -68,13 +69,14 @@
 
     //Insert data into database
     // Search user id matching user name
-    $q = "SELECT user_id FROM users WHERE user_name = '$name' ";
+    $q = "SELECT user_id, test_times FROM users WHERE user_name = '$name' ";
     $reslut = mysqli_query($con, $q);
     $row = mysqli_fetch_row($reslut);
     $id = $row[0];
+    $test_times = $row[1];
 
     // Insert questionnaires answer into 
-    $q="INSERT INTO questionnaire_b (user_id, user_name,question1, question2, question3, question4, message, answer_time) VALUES ( $id,'$name', '$a1','$a2', '$a3', '$a4', '$message', '$time')";
+    $q="INSERT INTO questionnaire_b (user_id, user_name, test_times, question1, question2, question3, question4, message, answer_time) VALUES ( $id,'$name', $test_times, '$a1','$a2', '$a3', '$a4', '$message', '$time')";
 
     $reslut=mysqli_query($con, $q);
  

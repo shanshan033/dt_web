@@ -58,7 +58,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" required/>
                                 <span>Cold</span>
                             </div>
                         </label>
@@ -100,14 +100,14 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a1" required/>
                                 <span>Very uncomfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
                                 <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a2" />
-                                <span>Slightly cncomfortable</span>
+                                <span>Slightly uncomfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
@@ -143,7 +143,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q3" type="radio" value="q3_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q3" type="radio" value="q3_a1" required/>
                                 <span>Yes</span>
                             </div>
                         </label>
@@ -163,31 +163,31 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                 <div class="col-12">
                     <h2 class="tm-question-header tm-question-header-mt">Question 4</h2>
                     <p>Which of these tasks need improvement?</p>
-                    <div class="tm-q-choice-container">
+                    <div class="tm-q-choice-container options">
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
-                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a1" />
+                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a1" required/>
                                 <span>Stroop Testing (Task1)</span>
                             </div>
                             <img src="img/img-1x1-1.png" alt="Image" class="img-fluid" width = "200" height = "200">
                         </label>
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
-                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a2" />
+                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a2" required/>
                                 <span>Trail Marking (Task2)</span>
                             </div>
                             <img src="img/img-1x1-2.png" alt="Image" class="img-fluid" width = "200" height = "200">
                         </label>
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
-                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a3" />
+                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a3" required/>
                                 <span>Dot Cancellation Test (Task3)</span>
                             </div>
                             <img src="img/img-1x1-3.png" alt="Image" class="img-fluid" width = "200" height = "200">
                         </label>
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
-                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a4" />
+                                <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a4" required/>
                                 <span>Mouse Tracking (Task 4)</span>
                             </div>
                             <img src="img/img-1x1-4.png" alt="Image" class="img-fluid" width = "200" height = "200">
@@ -284,10 +284,21 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                 $(this).parent().siblings("img").addClass("darken");
             });
 
+            // Must select at least one checked box
             $(".tm-checkbox").click(function () {
                 $(this).parent().siblings("img").toggleClass("darken");
-            })
+                var requiredCheckboxes = $('.options :checkbox[required]');
+                console.log(requiredCheckboxes);
+
+                requiredCheckboxes.change(function(){
+                if(requiredCheckboxes.is(':checked')) {
+                    requiredCheckboxes.removeAttr('required');
+                } else {
+                    requiredCheckboxes.attr('required', 'required');
+                }});
+            });
         });
+
     </script>
 </body>
 

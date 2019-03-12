@@ -31,6 +31,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
 
     <!-- Template Mo style -->
 
+
 </head>
 
 <body>
@@ -51,7 +52,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
             </div>
         </div>
 
-        <form action="questionnaires.php" method="post">
+        <form action="questionnaires.php" method="post" id="questionatireAForm">
             <div class="row">
                 <div class="col-12">
                     <h2 class="tm-question-header">Question 1</h2>
@@ -59,7 +60,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" required = "required"/>
+                                <input class="tm-radio-group-1 with-gap" name="q1" type="radio" value="q1_a1" required/>
                                 <span>Yes</span>
                             </div>
                         </label>
@@ -82,7 +83,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a1" required/>
                                 <span>Yes</span>
                             </div>
                         </label>
@@ -105,7 +106,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q3" type="radio" value="q3_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q3" type="radio" value="q3_a1" required/>
                                 <span>Yes</span>
                             </div>
                         </label>
@@ -128,7 +129,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q4" type="radio" value="q4_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q4" type="radio" value="q4_a1" required/>
                                 <span>Cold</span>
                             </div>
                         </label>
@@ -170,7 +171,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a1" required/>
                                 <span>Very uncomfortable</span>
                             </div>
                         </label>
@@ -213,7 +214,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q6" type="radio" value="q6_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q6" type="radio" value="q6_a1" required/>
                                 <span>Very quiet</span>
                             </div>
                         </label>
@@ -254,7 +255,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q7" type="radio" value="q7_a1" />
+                                <input class="tm-radio-group-1 with-gap" name="q7" type="radio" value="q7_a1" required/>
                                 <span>Very dim</span>
                             </div>
                         </label>
@@ -306,7 +307,9 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
     </div>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/materialize.min.js"></script>
+
     <script>
+
 
         // Parallax function
         // https://codepen.io/roborich/pen/wpAsm
@@ -352,18 +355,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
             return false;
         }
 
-        $(document).ready(function () {
 
-            // Detect IE
-            if (detectIE()) {
-                alert('Please use the latest version of Chrome, Firefox, or Edge for best browsing experience.');
-            }
-
-            $('select').formSelect();
-            // Parallax image background
-            background_image_parallax($(".tm-parallax"), 0.40);
-
-        });
     </script>
 </body>
 
