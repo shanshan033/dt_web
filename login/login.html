@@ -97,20 +97,6 @@
             }
             return false;
         }
-        // function login(){
-        //     var name =  $("#username").val();
-        //     var password = $("#password").val();
-        //     $.ajax({
-        //     type: "post",
-        //     url: "login.php",
-        //             dataType: "json", //回调函数接收数据的数据格式
-        //             data: {username:function() {
-        //                     return $("#username").val();
-        //                 }},                   
-        // })
-        // }
-
-        
 
   $('form').submit(function(e){
             var data = $(this).serialize();    //序列化表单
@@ -145,7 +131,7 @@
                     data:{
                         username:function() {
                             return $("#username").val();},
-                          password:function () {
+                        password:function () {
                             return $("#password").val();}},                
                 }  
 

@@ -42,7 +42,7 @@
 
         // setcookie('name',$name,time()+3600);
        
-        header("Refresh:1; url=../tests/welcome.php");//一秒后刷新进入登录页
+        header("Refresh:1; url=../questionnaires/questionnaire_a.php");//一秒后刷新进入登录页
     }else{
         echo json_encode(false);
     }

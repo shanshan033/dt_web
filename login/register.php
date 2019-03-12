@@ -19,6 +19,7 @@
     if(!isset($_POST['submit'])){
         exit("Wrong execute");
     }
+    else{
 // 
     // Obtain the value from form
     $name = $_POST['username'];
@@ -26,8 +27,9 @@
     $gender = $_POST['gender'];
     $password = $_POST['password'];
 
+
     //Insert data into database
-    $q="INSERT INTO users (user_name,user_password, user_age, user_gender) VALUES ('$name','$password', '$age', '$gender')";
+    $q="INSERT INTO users (user_name,user_password, user_age, user_gender) VALUES ('$name','$password', $age, $gender)";
 
     $reslut=mysqli_query($con, $q);
     
@@ -43,6 +45,7 @@
         header("Refresh:1; url=login.html");//一秒后刷新进入登录页
         // exit("true");
     }
+}
 
 
 ?>
