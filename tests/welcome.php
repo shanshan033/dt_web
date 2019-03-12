@@ -17,7 +17,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Attention Level Tasks</title>
     <link href="css/demo.css" rel="stylesheet" type="text/css">
-	<link href="attention_task.css" rel="stylesheet" type="text/css">
+	<link href="css/attention_task.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <!--Framework-->
     <!-- <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script> -->
@@ -29,14 +29,16 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
 
 
 <body style="">
-  <div class="container bounceIn animated center-in-center" style="top: 15%; ">
+  <div class="container bounceIn animated center-in-center-intro">
   <div class="row clearfix">
     <div class="col-md-12 column">
       <div class="jumbotron">
         <?php echo "<h1>Hello :)</br> {$name}</h1>" ?>
         
         <p class ="text-center">
-          There are four attnetion tasks required to be completed. <br>
+          There are four attention tasks required to be completed. <br>
+          The first one is Stroop Color Test <br>
+          You need to choose the option that corresponds to the color of the test, rather than the meaning of the text.<br>
           There is no time limitation.<br>
           Just try your best!<br>
         </p>
