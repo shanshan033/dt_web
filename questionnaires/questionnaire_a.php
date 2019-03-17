@@ -21,11 +21,9 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
     <!-- load CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
     <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="../login/css/materialize.min.css">
     <!-- https://materializecss.com -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- https://getbootstrap.com/ -->
-    <!-- <link rel="stylesheet" href="css/all.min.css"> -->
+    <link rel="stylesheet" href="../login/css/bootstrap.min.css">
     <!-- https://fontawesome.com/ -->
     <link rel="stylesheet" href="css/templatemo-style.css">
 
@@ -178,7 +176,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                         <label class="tm-q-choice">
                             <div class="mb-3">
                                 <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a2" />
-                                <span>Slightly cncomfortable</span>
+                                <span>Slightly uncomfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
@@ -291,7 +289,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                 	<h2 class="tm-question-header tm-question-header-mt">Additional Opinions</h2>
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
-                            <textarea class="p-3" name="message" id="message" cols="30" rows="3"></textarea>
+                            <textarea class="p-3" name="q8" id="q8" cols="30" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
@@ -305,11 +303,10 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
             </div> <!-- row -->
         </form>
     </div>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/materialize.min.js"></script>
+    <script src="../login/js/jquery-3.3.1.min.js"></script>
+    <script src="../login/js/materialize.min.js"></script>
 
     <script>
-
 
         // Parallax function
         // https://codepen.io/roborich/pen/wpAsm
@@ -345,17 +342,21 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                 return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
             }
 
-            // var edge = ua.indexOf('Edge/');
-            // if (edge > 0) {
-            //     // Edge (IE 12+) => return version number
-            //     return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-            // }
-
-            // other browser
             return false;
         }
 
+        $(document).ready(function () {
 
+            // Detect IE
+            if (detectIE()) {
+                alert('Please use the latest version of Chrome, Firefox, or Edge for best browsing experience.');
+            }
+
+            $('select').formSelect();
+            // Parallax image background
+            background_image_parallax($(".tm-parallax"), 0.40);
+            
+        });
     </script>
 </body>
 

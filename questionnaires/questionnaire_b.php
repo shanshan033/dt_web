@@ -15,14 +15,14 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Image Survey HTML Form by templatemo</title>
+    <title>Questionnaire B</title>
 
     <!-- load CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
     <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="../login/css/materialize.min.css">
     <!-- https://materializecss.com -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../login/css/bootstrap.min.css">
     <!-- https://getbootstrap.com/ -->
     <!-- <link rel="stylesheet" href="css/all.min.css"> -->
     <!-- https://fontawesome.com/ -->
@@ -201,7 +201,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                 	<h2 class="tm-question-header tm-question-header-mt">Do you have any suggestions</h2>
                     <div class="row">
                         <div class="col-md-12 col-lg-16">
-                            <textarea class="p-3" name="message" id="message" cols="30" rows="3"></textarea>
+                            <textarea class="p-3" name="q5" id="q5" cols="30" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
@@ -214,8 +214,8 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
             </div> <!-- row -->
         </form>
     </div>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/materialize.min.js"></script>
+    <script src="../login/js/jquery-3.3.1.min.js"></script>
+    <script src="../login/js/materialize.min.js"></script>
     <script>
 
         // Parallax function
@@ -252,13 +252,6 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                 return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
             }
 
-            // var edge = ua.indexOf('Edge/');
-            // if (edge > 0) {
-            //     // Edge (IE 12+) => return version number
-            //     return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-            // }
-
-            // other browser
             return false;
         }
 
