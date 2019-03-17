@@ -148,9 +148,11 @@ vueApp = new Vue({
     updated: function () {
         // alert("updateeeeeeeee");
         if (this.mousemapTabVisible) {
-            
+            // alert("llllllll");
             this.drawMousemap();
         }
+
+        // this.drawPicture();
     },
     watch: {
         gridSize: function (val) {
@@ -210,6 +212,8 @@ vueApp = new Vue({
             this.mouseMoves.length = 0;
             this.mouseClicks.length = 0;
             this.mouseTracking = false;
+            // this.drawPicture();
+            // console.log("ssssssssss");
         },
         initTable: function () {
             this.clearIndexes();
@@ -230,6 +234,8 @@ vueApp = new Vue({
             // }
             this.startMouseTracking();
             this.gameStarted = true;
+            // this.drawPicture();
+            // console.log(this )
             // changeDialogTab('mousemap');
             this.mousemapTabVisible = true;
             // console.log(vueApp);
@@ -519,6 +525,7 @@ vueApp = new Vue({
             this.stats.stopTime = new Date();
             this.dialogShowed = true;
             this.stopMouseTracking();
+            this.drawPicture();
         },
         changeDialogTab: function (tabName) {
             this.statsTabVisible = false;
@@ -611,6 +618,21 @@ vueApp = new Vue({
                 var nx = event.clientX / this.$el.clientWidth;  // normalize in [0, 1] interval
                 var ny = event.clientY / this.$el.clientHeight;
                 this.mouseMoves.push(new Point(nx, ny));
+            }
+        },
+
+        drawPicture: function () {
+            var canvas = this.$refs['picture_canvas'];
+            // alert("drawwwwwwwwwwwwww");
+            if(canvas){
+                var imgObj = new Image();
+                imgObj.src = "img/task1.jpg";
+                imgObj.onload = function(){
+                    var ctx = canvas.getContext('2d');
+                    // ctx.drawImage(this, 0, 0);//this即是imgObj,保持图片的原始大小：470*480
+                    ctx.drawImage(this, 0, 0,1024,568);//改变图片的大小到1024*768
+                }
+
             }
         },
         drawMousemap: function () {

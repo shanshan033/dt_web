@@ -8,7 +8,6 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
   $name = $_SESSION["name"];  
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +25,16 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
         [v-cloak] {
             display: none;
         }
+
+        html {
+
+  height: 100%;
+
+  width: 100%;
+
+  overflow: hidden;
+
+}
     </style>
 </head>
 <body>
@@ -34,53 +43,33 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
          @mousemove="appendMouseMove($event)"
          @keyup.esc="dialogShowed ? hideDialog() : execDialog('mousemap')"
          v-focus v-cloak>
-		<!-- delete mouse focus and hover
-
-			style="background-image: url('img/unnc.jpg');"
-		 -->
-
-		<!-- show img in background -->
         
-        <div class="w3-container w3-margin-top w3-center">
-        	<img src="img/task1.jpg" style="height: 100%; width: 100%;">
-          <!--   <canvas class="mouse-map"
-                    width="1000" height="500"
-                    ref="mousemap_canvas">
-            </canvas> -->
+        <div class="w3-container w3-margin-top w3-center"
+             id = "mainContent">
+            <canvas style="border:1px solid #ccc; margin:20px auto;display: block; min-width: 350px; max-width: 100%;"
+                    width="1024" height="568"
+                    ref="picture_canvas">
+            </canvas>
+
+            <button type="button"
+                    class="w3-btn w3-red w3-text-white w3-xlarge"
+                    style="width: 70%; margin: 10px;"
+                    @click="dialogShowed ? hideDialog() : execDialog('mousemap')"
+                    ref="btn">
+                    Stop Test
+            </button>
+
+        	<!-- <img src="img/task1.jpg" style="height: 100%; width: 100%;"> -->
         </div>
+
+
+
+
         <div class="footer">
             <div class="footer-name" >
                 <p id="nameFooter" ref="username"><?php echo "{$name}";?></p>
             </div>
         </div>
-
-        <!--  <div class="w3-container w3-light-grey w3-center">
-                    <button type="button"
-                            class="w3-btn w3-indigo w3-text-white w3-xlarge"
-                            style="width: 80%; margin: 10px;"
-                            @click="startGame()"
-                            ref="btn">
-                        Start Test
-                    </button>
-        </div> -->
-
-
-
-        <!-- <div v-for="r in gridRange" class="row" :style="{height: rowHeight}">
-            <div v-for="c in gridRange" class="cell" :style="{width: colWidth}"
-                 @mouseover="hoveredCell = r*gridSize + c"
-                 @mouseleave="hoveredCell = -1"
-                 @click="setClickedCell(r*gridSize + c, $event)"
-
-                 :class="{'normal-cell' : !showHover && !showClickAnimation}">  
-
-                 
-
-                
-            </div>
-        </div> -->
-
-        <!-- <div class="center-dot" v-if="showCenterDot"></div> -->
 
         <div id="settings-btn" @click="execDialog('mousemap')"></div>
 
@@ -118,10 +107,10 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                 <div class="w3-container w3-margin-top w3-center"  v-if="!mousemapTabVisible">
                 	<h4>
                 	Welcome to mouse tracking test :) <br>
-                	You are doing well so far so good!<br>
+                	<!-- You are doing well so far so good!<br>
                 	In this test <br>
                 	You need to follow a random curve line by using iPad pen<br>
-                    After you finish it, please click ESC to exit the test<br>
+                    After you finish it, please click ESC to exit the test<br> -->
                 	Click start and lets start the test! <br>
            			</h4>
                 </div>
@@ -143,38 +132,13 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
     <script src="js/mouse_tracking.js"></script>
     <script src="../js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-           
-            // var canvas = this.$refs['mousemap_canvas']; // if mousemapTab visible           
-            //  if (canvas) {
+        // document.body.addEventListener('touchmove' , function(e){
+        //  e.preventDefault();
+        // });
 
-            //     var dataUrl=canvas.toDataURL();
-            //     var userName = this.$refs['username'].innerText;
-            //     var time = this.stats.timeDiff();
-            //     // console.log(dataUrl);
-
-            //     $.ajax({
-            //         type: "POST",
-            //         url: "mouse_tracking_store.php",
-            //         dataType: "json",
-            //         data: {username: userName,
-            //             image: dataUrl,
-            //             time: time},
-            //         succuss: function(msg){
-            //             // console.log(msg);
-            //             window.location.href = "../../questionnaires/questionnaire_b.php";
-            //         },
-            //         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            //         // 状态码
-            //         console.log(XMLHttpRequest.status);
-            //         // 状态
-            //         console.log(XMLHttpRequest.readyState);
-            //         // 错误信息   
-            //         console.log(textStatus);
-
-            //         }
-            //     });
-            // }
+        // document.ondragstart = function(event) {
+        //     return false;
+        // };
     </script>
-  
 </body>
 </html>
