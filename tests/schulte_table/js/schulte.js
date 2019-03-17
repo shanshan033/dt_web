@@ -259,7 +259,9 @@ vueApp = new Vue({
                         },
                 }).done(function(result){
                         if(result){
-                            setTimeout("window.location.href = '../mouse_tracking/mouse_tracking.php'", 500);
+                            setTimeout("window.location.href = '../intro_mouse.html'", 500);
+                            // setTimeout("window.location.href = '../../questionnaires/questionnaire_b.php'", 500);
+
                             // alert("true");
                         }
                         else{
