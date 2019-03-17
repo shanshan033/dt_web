@@ -6,7 +6,7 @@
 
 .center-in-center-dot-cancellation{   
             position: absolute;   
-            left: 25%;  
+            left: 13%;  
 } 
 
 .center-in-center-intro{   
@@ -18,6 +18,9 @@
 .imgClass{
 	max-height: 50px;
     max-width : 50px;
+    display: block;
+  	margin-left: auto;
+  	margin-right: auto;
 }
 
 .task-explanation{
@@ -48,11 +51,6 @@ position: fixed;
 
 .footer-name{
 	overflow: hidden;
-	/*min-height: 50px;*/
-	/*display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;*/
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	-ms-flex-align: center;
