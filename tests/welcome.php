@@ -20,7 +20,6 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
 	<link href="css/attention_task.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <!--Framework-->
-    <!-- <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script> -->
     <script src="js/jquery-ui.js" type="text/javascript"></script>
     <!--End Framework-->
      <script src="js/jquery.ffform.js" type="text/javascript"></script>
@@ -33,11 +32,13 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
   <div class="row clearfix">
     <div class="col-md-12 column">
       <div class="jumbotron">
-        <?php echo "<h1>Hello :)</br> {$name}</h1>" ?>
+        <?php echo "<p class ='text-center'> Hello {$name} :) <br>There are four attention task you need to complete</p>" ?>
+        <h1>
+          Task One<br>
+        </h1>
         
         <p class ="text-center">
-          There are four attention tasks required to be completed. <br>
-          The first one is Stroop Color Test <br>
+          <b>Stroop Color Task Instruction </b><br>
           You need to choose the option that corresponds to the color of the test, rather than the meaning of the text.<br>
           There is no time limitation.<br>
           Just try your best!<br>

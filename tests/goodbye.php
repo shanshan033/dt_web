@@ -1,47 +1,25 @@
 <?php
-
-session_start();
-if(empty($_SESSION["name"]))               //判断session里面是不是存储到值，如果没有存储，让其跳转到登录界面
-{
-    header("location:../login/login.html");
-    exit();
-}else{
+  session_start();
   $name = $_SESSION["name"];  
-}
 
-  $server="127.0.0.1";//主机
-    $db_username="root";//你的数据库用户名
-    $db_password="Lxy551812";//你的数据库密码
-    $db_name = "dt_web";
-    $con = mysqli_connect($server,$db_username,$db_password, $db_name);//链接数据库
+  include("../login/validation/dbConnection.php");
+ 
+  $q = "SELECT * FROM users WHERE user_name = '$name' ";
+  $reslut = mysqli_query($con, $q);
+  $row = mysqli_fetch_row($reslut);
+  $test_times = $row[5] + 1;
 
+  $q="UPDATE users SET test_times = $test_times WHERE user_name = '$name'";
 
-    if(!$con){
-        die("can't connect".mysqli_connect_error().PHP_EOL);//如果链接失败输出错误
-    }else{
-        // echo "connect success\n";
-    }
+  $reslut=mysqli_query($con, $q);
 
-    $q = "SELECT * FROM users WHERE user_name = '$name' ";
-    $reslut = mysqli_query($con, $q);
-    $row = mysqli_fetch_row($reslut);
-    $test_times = $row[5] + 1;
-
-    $q="UPDATE users SET test_times = $test_times WHERE user_name = '$name'";
-    // echo $q;
-
-    $reslut=mysqli_query($con, $q);
-
-    if (!$reslut){
-        die('Error: ' . mysqli_error($con));//Error warming
-    }else{
-        mysqli_close($con);//Close database
-    }
-
-// delete session
-session_start();
-$_SESSION = array();
-session_destroy();
+  if (!$reslut){
+      die('Error: ' . mysqli_error($con));//Error warming
+  }else{
+      mysqli_close($con);//Close database
+  }
+  $_SESSION = array();
+  session_destroy();
 ?>
 
 <!DOCTYPE PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -55,7 +33,6 @@ session_destroy();
 	<link href="css/attention_task.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <!--Framework-->
-    <!-- <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script> -->
     <script src="js/jquery-ui.js" type="text/javascript"></script>
     <!--End Framework-->
      <script src="js/jquery.ffform.js" type="text/javascript"></script>
