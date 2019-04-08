@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(empty($_SESSION["group_schutle"])){
+        $_SESSION["group_schutle"] = 1;
+    }else{
+        $group = $_SESSION["group_schutle"];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,19 +86,11 @@
                             <label for="grid_size" class="w3-text-black w3-block">
                                 <b>Grid</b>
                             </label>
-                            <select id="grid_size"
+                              <select id="grid_size"
                                     class="w3-select w3-border w3-padding-small"
                                     style="width: 70%"
                                     v-model="gridSize">
-                                <option value="2">2 x 2</option>
-                                <option value="3">3 x 3</option>
-                                <option value="4">4 x 4</option>
                                 <option value="5">5 x 5</option>
-                                <option value="6">6 x 6</option>
-                                <option value="7">7 x 7</option>
-                                <option value="8">8 x 8</option>
-                                <option value="9">9 x 9</option>
-                                <option value="10">10 x 10</option>
                             </select>
                         </div>
 
@@ -101,10 +102,7 @@
                                     class="w3-select w3-border w3-padding-small"
                                     style="width: 70%"
                                     v-model="groupCount">
-                                <option value="1">1 group</option>
-                                <option value="2">2 groups</option>
-                                <option value="3">3 groups</option>
-                                <option value="4">4 groups</option>
+                                <option value="1">3 group</option>
                             </select>
                         </div>
                     </div>
@@ -135,12 +133,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="w3-row" >-->
-                        <!--<div class="w3-col w3-half">-->
-                            <!--<input class="w3-check" type="checkbox" v-model="divergentCount" style="margin-top: 5px;">-->
-                            <!--<label class="w3-validate">Divergent Count </label>-->
-                        <!--</div>-->
-                    <!--</div>-->
 
   
 

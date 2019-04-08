@@ -239,61 +239,61 @@ vueApp = new Vue({
             var total_time = this.stats.timeDiff();
             var wrong = this.stats.wrongClicks;
             var correct = this.stats.correctClicks;
-            
 
-            for ( var i = 0; i < this.stats.clicks.length; i++){
-                var number = this.stats.clicks[i].number;
-                // console.log(total_time+" "+wrong+" "+correct);
-                // console.log(this.stats.correctClicks);
+            // for ( var i = 0; i < this.stats.clicks.length; i++){
+            //     var number = this.stats.clicks[i].number;
+            //     console.log(total_time+" "+wrong+" "+correct);
+            //     console.log(this.stats.correctClicks);
 
+                // Change the pass form
                 $.ajax({
                     type: "POST",
                     url: "schulte_table_store.php",
                     dataType: "json",
-                    data: {answer_number: this.stats.clicks[i].number,
-                        answer_flag: this.stats.clicks[i].err,
-                        time: this.stats.clicks[i].time,
+                    data: {
+                        clicks: this.stats.clicks, 
                         total_time : total_time,
                         correctClicks: correct,
                         wrongClicks : wrong
                         },
                 }).done(function(result){
                         if(result){
-                            setTimeout("window.location.href = '../intro_mouse.html'", 500);
-                            // setTimeout("window.location.href = '../../questionnaires/questionnaire_b.php'", 500);
-
-                            // alert("true");
+                            setTimeout("window.location.href = '../mouse_tracking/mouse_tracking.php'", 500);
                         }
                         else{
-                            alert("Something worng");
+                            setTimeout("window.location.href = 'schulte_table.php'", 500);
                         }
                 });
-            }
-            
+            // }
 
-            // alert("clicks");
+            // for ( var i = 0; i < this.stats.clicks.length; i++){
+            //     var number = this.stats.clicks[i].number;
+            //     console.log(total_time+" "+wrong+" "+correct);
+            //     console.log(this.stats.correctClicks);
 
-            // $.ajax({
+            //     // Change the pass form
+            //     $.ajax({
             //         type: "POST",
             //         url: "schulte_table_store.php",
             //         dataType: "json",
-            //         data: {answer_number: number,
-            //             answer_flag: err,
-            //             time: time,
+            //         data: {
+            //             answer_number: this.stats.clicks[i].number,
+            //             answer_flag: this.stats.clicks[i].err,
+            //             time: this.stats.clicks[i].time,
             //             total_time : total_time,
-            //             correctClicks: this.stats.correctClicks,
-            //             wrongClicks : this.stats.wrongClicks
+            //             correctClicks: correct,
+            //             wrongClicks : wrong
             //             },
             //     }).done(function(result){
             //             if(result){
-            //                 alert("true");
+            //                 setTimeout("window.location.href = '../mouse_tracking/mouse_tracking.php'", 500);
             //             }
             //             else{
-            //                 alert("Something worng");
+            //                 setTimeout("window.location.href = 'schulte_table.php'", 500);
             //             }
             //     });
-
-            // body...
+            // }
+            
         },
         clearIndexes: function () {
             this.hoverIndex = -1;
@@ -319,7 +319,6 @@ vueApp = new Vue({
                     var ny = event.pageY / this.$el.clientHeight;
                     this.mouseClicks.push(new Click(nx, ny, this.isCellCorrect(this.clickIndex)));
                 }
-
                 this.nextTurn();
             }
         },

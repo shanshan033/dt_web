@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(empty($_SESSION["name"]))               //判断session里面是不是存储到值，如果没有存储，让其跳转到登录界面
+if(empty($_SESSION["name"]))               
 {
     header("location:../login/login.html");
     exit();
@@ -13,7 +13,6 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
 <!DOCTYPE html">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Stroop Task</title>
@@ -30,6 +29,10 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
 
 </head>
 <body style="">
+     <div class="demos-buttons">
+        <h4 id="question_id"></h4>
+        <h4 id="timer">Timer: 00:00:00</h4>
+    </div>
 
 <div class="container bounceIn animated center-in-center-task" style="width: 70%">
 	<div id="formSC">

@@ -32,7 +32,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
   <div class="row clearfix">
     <div class="col-md-12 column">
       <div class="jumbotron">
-        <?php echo "<p class ='text-center'> Hello {$name} :) <br>There are four attention task you need to complete</p>" ?>
+        <?php echo "<p class ='text-center'> Hello {$name} :) <br>There are four attention tasks you need to complete</p>" ?>
         <h1>
           Task One<br>
         </h1>

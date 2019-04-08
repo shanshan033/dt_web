@@ -2,7 +2,7 @@
 session_start();
 if(empty($_SESSION["name"]))               //判断session里面是不是存储到值，如果没有存储，让其跳转到登录界面
 {
-    header("location:../login/login.html");
+    header("location:../../login/login.html");
     exit();
 }else{
   $name = $_SESSION["name"];  
@@ -27,14 +27,10 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
         }
 
         html {
-
-  height: 100%;
-
-  width: 100%;
-
-  overflow: hidden;
-
-}
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -50,14 +46,14 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     width="1024" height="568"
                     ref="picture_canvas">
             </canvas>
-
+<!-- 
             <button type="button"
                     class="w3-btn w3-red w3-text-white w3-xlarge"
                     style="width: 70%; margin: 10px;"
                     @click="dialogShowed ? hideDialog() : execDialog('mousemap')"
                     ref="btn">
-                    Stop Test
-            </button>
+                    Finish
+            </button> -->
 
         	<!-- <img src="img/task1.jpg" style="height: 100%; width: 100%;"> -->
         </div>
@@ -106,12 +102,12 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
 
                 <div class="w3-container w3-margin-top w3-center"  v-if="!mousemapTabVisible">
                 	<h4>
-                	Welcome to mouse tracking test :) <br>
-                	<!-- You are doing well so far so good!<br>
-                	In this test <br>
-                	You need to follow a random curve line by using iPad pen<br>
-                    After you finish it, please click ESC to exit the test<br> -->
-                	Click start and lets start the test! <br>
+                        <b>INSTRUCTION</b> <br>
+                	    Follow a curve line by using computer mouse or touch bar<br>
+                        No need to hold the right click, just move your mouse or finger<br>
+                        <b>After following the line, please click "ESC" button ASAP! </b><br>
+                        There is no time limitation.<br>
+                        Just try your best!<br>
            			</h4>
                 </div>
 
