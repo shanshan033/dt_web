@@ -1,14 +1,3 @@
-<?php
-session_start();
-if(empty($_SESSION["name"]))               //判断session里面是不是存储到值，如果没有存储，让其跳转到登录界面
-{
-    header("location:../login/login.html");
-    exit;
-}else{
-  $name = $_SESSION["name"];  
-}
-?>
-
 <!DOCTYPE PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -38,8 +27,9 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
         
         <p class ="text-center">
           <b>Mouse Tracking Task Instruction </b><br>
-          You need to follow a random curve line by using iPad pen<br>
-          After you finish it, please click ESC or click "over" button<br>
+          Follow a curve line by using computer mouse or touch bar<br>
+          No need to hold the right click, just move your mouse or finger<br>
+          <b>After following the line, please click "ESC" button ASAP! </b> <br>
           There is no time limitation.<br>
           Just try your best!<br>
         </p>

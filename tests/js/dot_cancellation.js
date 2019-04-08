@@ -1,4 +1,12 @@
- 
+var clicks = [];
+// Constructor
+function ClickStats(click_id, err, time){
+    this.click_id = click_id;
+    this.time = time;
+    this.err = err;
+}
+
+
 $(document).ready(function(){
   var correctNumber = 0;
   var errorNumber = 0;
@@ -33,6 +41,9 @@ $(document).ready(function(){
 
 // Show table into web page
 $("#tbody1").html(generate());
+$("#question_id").html("Total Correct Images: " + totalCorrectNumber + 
+                           "</br> </br> Correct Clicks: " + correctNumber +
+                           "</br> </br> Wrong Clicks: " + errorNumber);
 
 /* Check whether the choice is right (this alert will not be shown in ths final version)
  * Obtain the id of the image and check the correction
@@ -72,26 +83,35 @@ $("table tr td").on("click", function () {
 
     lastTime = new Date();
     console.log(totalCorrectNumber + " " + correctNumber + " " +totalTime() + " " + time);
+    $("#question_id").html("Total Correct Images: " + totalCorrectNumber + 
+                           "</br> </br> Correct Clicks: " + correctNumber +
+                           "</br> </br> Wrong Clicks: " + errorNumber);
 
+    click = new ClickStats(click_id, flag, time);
 
-    if(correctNumber <= totalCorrectNumber){
-    
-    $.ajax({
+    // Push click into clicks array
+    clicks.push(click);
+            
+    for(var i = 0; i < clicks.length; i++){
+        console.log(clicks[i].click_id + " " + clicks[i].time + " " + clicks[i].err);
+    }
+
+    if(correctNumber >= totalCorrectNumber){
+       // Add information into ClickStats constructor 
+        $.ajax({
         type: "POST",
         url: "dot_cancellation_store.php",
         dataType: "json",
         data: {username: username,
-                click_id: click_id,
-                answer_flag: flag,
-                correct_number: correctNumber,
-                error_number: errorNumber,
+                clicks: clicks,
                 total_correct_number: totalCorrectNumber,
-                answer_time: time,
                 total_answer_time: totalTime()},
         }).done(function(result){
-                if(!result){
-                  // alert(">>>>>>>>>>>>>>");
-                  setTimeout("window.location.href='into_schulte.html'", 500);
+                if(result){
+                  // alert(result);
+                  setTimeout("window.location.href='intro_schulte.html'", 500);
+                }else{
+                  setTimeout("window.location.href='dot_cancellation.php'", 500);
                 }
           }); 
     }

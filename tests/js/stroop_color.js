@@ -16,8 +16,7 @@ $(document).ready(function () {
     var lastTime = new Date();
     var flag = 0;
     var userName = $('#nameFooter').html();
-
-
+    startTimer();
     var randomTest = function(){
         var list = ["Red", "Grey", "Blue", "Green", "Purple", "Black", "Orange", "Pink" ];
         var btn = new Array();
@@ -44,6 +43,54 @@ $(document).ready(function () {
         };
     }
 
+        var totalTime = function(){
+        var diff = lastTime - startTime;
+        diff = diff / 1000;
+        var seconds = Math.floor(diff % 60);
+        diff = diff / 60;
+        var minutes = Math.floor(diff % 60);
+        diff = diff / 60;
+        var hours = Math.floor(diff % 24);
+
+        var totalTime =  ("0" + hours).slice (-2) + ':' + ("0" + minutes).slice (-2) + ':' + ("0" + seconds).slice (-2);
+        // console.log( " "+totalTime);
+        return totalTime;
+        }
+
+        function startTimer(){
+
+            // var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date();
+
+  // Find the distance between now and the count down date
+  var diff = now - startTime;
+  // Time calculations for days, hours, minutes and seconds
+  diff = diff / 1000;
+        var seconds = Math.floor(diff % 60);
+        diff = diff / 60;
+        var minutes = Math.floor(diff % 60);
+        diff = diff / 60;
+        var hours = Math.floor(diff % 24);
+         var totalTime =  ("0" + hours).slice (-2) + ':' + ("0" + minutes).slice (-2) + ':' + ("0" + seconds).slice (-2);
+
+
+  // Time calculations for days, hours, minutes and seconds
+  // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  // document.getElementById("demo").innerHTML = days + "d " + hours + "h "+ minutes + "m " + seconds + "s ";
+   $("#timer").text("Timer: " + totalTime);
+ }, 1000);
+}
+
     function generate(){
 
         var Test = randomTest();
@@ -58,24 +105,17 @@ $(document).ready(function () {
         $("#formSC").html(formData);
 
         TestNumber = TestNumber+1;
+
+        $("#question_id").text("Question " + TestNumber + " / 50");
+       
     }
 
     // Generate random test
     generate();
 
-    var totalTime = function(){
-        var diff = lastTime - startTime;
-        diff = diff / 1000;
-        var seconds = Math.floor(diff % 60);
-        diff = diff / 60;
-        var minutes = Math.floor(diff % 60);
-        diff = diff / 60;
-        var hours = Math.floor(diff % 24);
 
-        var totalTime =  ("0" + hours).slice (-2) + ':' + ("0" + minutes).slice (-2) + ':' + ("0" + seconds).slice (-2);
-        // console.log( " "+totalTime);
-        return totalTime;
-    }
+
+
 
         
     $(document).on('click', "button", function() {
@@ -108,9 +148,9 @@ $(document).ready(function () {
         }
 
         lastTime = new Date();
-        generate();
+        
 
-        if(TestNumber > 10){
+        if(TestNumber >= 50){
             $.ajax({
                 type: "POST",
                 url: "stroop_color_store.php",
@@ -131,7 +171,11 @@ $(document).ready(function () {
                 }
             });
             window.location.href="intro_dot.html";
-        }    
+        }else{
+            generate();
+        }
+
+         
 
     });
 
