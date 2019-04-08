@@ -42,7 +42,7 @@
                 <div class="col-12">
                     <h2 class="tm-question-header">Username</h2>
                     <input type="text" name="username" id="username" data-validation="text"
-                        data-msg="Invalid Name" placeholder="Ex: John Donga">
+                        data-msg="Invalid Name" placeholder="At least 5 characters">
                         <div id="myDiv"></div>
                     <!-- <p>Please rate your current thermal sensation.</p> -->
 
@@ -50,7 +50,7 @@
 
                 <div class="col-12">
                     <h2 class="tm-question-header">Age</h2>
-                    <input type="number" id="age" name="age" placeholder="Ex: 20">
+                    <input type="number" id="age" name="age" placeholder="1-99">
                 </div> <!-- col-12 -->
 
                 <div class="col-12">
@@ -74,7 +74,7 @@
                 <div class="col-12">
                     <h2 class="tm-question-header">Password</h2>
                      <input type="password" name="password" id="password" data-validation="text"
-                        data-msg="Invalid Password" placeholder="Ex: 1234@lss">
+                        data-msg="Invalid Password" placeholder="At least 5 characters or number">
                 </div> <!-- col-12 -->
 
                 <div class="col-12">
@@ -112,5 +112,37 @@
 }
 </style>
 </body>
+   <script>
+        /**
+         * detect IE
+         * returns version of IE or false, if browser is not Internet Explorer
+         */
+        function detectIE() {
+            var ua = window.navigator.userAgent;
 
+            var msie = ua.indexOf('MSIE ');
+            if (msie > 0) {
+                // IE 10 or older => return version number
+                return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+            }
+
+            var trident = ua.indexOf('Trident/');
+            if (trident > 0) {
+                // IE 11 => return version number
+                var rv = ua.indexOf('rv:');
+                return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+            }
+
+            return false;
+        }
+
+        $(document).ready(function () {
+
+            // Detect IE
+            if (detectIE()) {
+                alert('Please use the latest version of Chrome, Firefox, or Edge for best browsing experience.');
+            }
+            
+        });
+    </script>
 </html>

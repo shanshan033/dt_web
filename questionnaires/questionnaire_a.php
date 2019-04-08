@@ -42,7 +42,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
         <div class="row">
             <div class="tm-intro">
                 <div class="col-sm-12 col-md-12 mb-md-0 mb-4 tm-intro-left">
-                    <?php echo "</br><p class='mb-0'> Hello {$name},</br> The aim of this project is to research what is the relationship between multiple temperatures and focus level. A website which contain a set of “attention level” tests will be designed and developed. The participants will be asked to complete the tests during a set of controlled experiments. All survey results is anonymous, please answer the following question in true. Thank you :)</p>";?>
+                    <?php echo "</br><p class='mb-0'> Hello {$name},</br> The aim of this project is to research what is the relationship between multiple temperatures and focus level. A website containing a set of “attention level” tests will be designed and developed. The participants will be asked to complete the tests during a set of controlled experiments. All survey results are anonymous, please answer the following question in true. Thank you :)</p>";?>
                 </div>
             </div>
             <div class="col-12">
@@ -54,7 +54,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
             <div class="row">
                 <div class="col-12">
                     <h2 class="tm-question-header">Question 1</h2>
-                    <p>Do you have any cognitive deficits?</p>
+                    <p>Do you have any cognitive deficits? For example deaf, colour blindness</p>
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
@@ -70,12 +70,13 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                         </label>
                     </div>
                 </div> <!-- col-12 -->
-
+<!-- 
                 <div class="col-12">
                     <hr>
-                </div>
+                </div> -->
 
                 <div class="col-12">
+                	<hr>
                     <h2 class="tm-question-header tm-question-header-mt">Question 2</h2>
                     <p>Have you attempted any attention-based experiment in the past?</p>
                     <div class="tm-q-choice-container">
@@ -94,11 +95,12 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     </div>
                 </div> <!-- col-12 -->
 
-                <div class="col-12">
+              <!--   <div class="col-12">
                     <hr>
-                </div>
+                </div> -->
 
                 <div class="col-12">
+                	<hr>
                     <h2 class="tm-question-header tm-question-header-mt">Question 3</h2>
                     <p>Do you think temperature can affect the level of your attention?</p>
                     <div class="tm-q-choice-container">
@@ -117,13 +119,14 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     </div>
                 </div> <!-- col-12 -->
 
-                 <div class="col-12">
+                <!--  <div class="col-12">
                     <hr>
-                </div>
+                </div> -->
 
                 <div class="col-12">
+                	<hr>
                     <h2 class="tm-question-header tm-question-header-mt">Question 4</h2>
-                    <p>Please rate your current thermal sensation.</p>
+                    <p>Please rate your current thermal feeling.</p>
                     <div class="tm-q-choice-container">
                         <label class="tm-q-choice">
                             <div class="mb-3">
@@ -159,11 +162,12 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     </div>
                 </div> <!-- col-12 -->
 
-                <div class="col-12">
+               <!--  <div class="col-12">
                     <hr>
-                </div>
+                </div> -->
 
                 <div class="col-12">
+                	<hr>
                     <h2 class="tm-question-header tm-question-header-mt">Question 5</h2>
                     <p>Please rate your current thermal comfort.</p>
                     <div class="tm-q-choice-container">
@@ -176,24 +180,18 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                         <label class="tm-q-choice">
                             <div class="mb-3">
                                 <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a2" />
-                                <span>Slightly uncomfortable</span>
+                                <span>Uncomfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
-                        <div class="mb-3">
+                            <div class="mb-3">
                                 <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a3" />
-                                <span>Natural</span>
+                                <span>Comfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
                                 <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a4" />
-                                <span>Slightly comfortable</span>
-                            </div>
-                        </label>
-                        <label class="tm-q-choice">
-                            <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q5" type="radio" value="q5_a5" />
                                 <span>Very comfortable</span>
                             </div>
                         </label>
@@ -202,11 +200,12 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                 </div> <!-- col-12 -->
 
 
-                <div class="col-12">
+               <!--  <div class="col-12">
                     <hr>
                 </div>
-
+ -->
                 <div class="col-12">
+                	<hr>
                     <h2 class="tm-question-header tm-question-header-mt">Question 6</h2>
                     <p>Please rate your current noise comfort.</p>
                     <div class="tm-q-choice-container">
@@ -242,12 +241,13 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                         </label>
                     </div>
                 </div> <!-- col-12 -->
-
+<!-- 
                 <div class="col-12">
                     <hr>
-                </div>
+                </div> -->
 
                 <div class="col-12">
+                	<hr>
                     <h2 class="tm-question-header tm-question-header-mt">Question 7</h2>
                     <p>Please rate your current lighting comfort.</p>
                     <div class="tm-q-choice-container">
@@ -284,7 +284,7 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     </div>
                 </div> <!-- col-12 -->
                 
-                <div class="col-12">
+               <!--  <div class="col-12">
                 	<hr>
                 	<h2 class="tm-question-header tm-question-header-mt">Additional Opinions</h2>
                     <div class="row">
@@ -292,7 +292,28 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                             <textarea class="p-3" name="q8" id="q8" cols="30" rows="3"></textarea>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
+                 <div class="col-12">
+                 	<hr>
+                    <h2 class="tm-question-header tm-question-header-mt">Question 8</h2>
+                    <p>What kind of experiment you take? </p>
+                    <div class="tm-q-choice-container">
+                        <label class="tm-q-choice">
+                            <div class="mb-3">
+                                <input class="tm-radio-group-1 with-gap" name="q8" type="radio" value="q8_a1" required/>
+                                <span>Temperature --  Shanshan Li</span>
+                            </div>
+                        </label>
+                        <label class="tm-q-choice">
+                            <div class="mb-3">
+                                <input class="tm-radio-group-1 with-gap" name="q8" type="radio" value="q8_a2" />
+                                <span>Noise -- Longyue GAO</span>
+                            </div>
+                        </label>
+                    </div>
+
+                </div> <!-- col-12 -->
 
                 <div class="col-12 text-center tm-submit-container">
                     <input type="submit" value = "Submit" name = "submitA" class="btn btn-primary tm-btn-submit">

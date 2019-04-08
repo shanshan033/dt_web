@@ -107,24 +107,18 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                         <label class="tm-q-choice">
                             <div class="mb-3">
                                 <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a2" />
-                                <span>Slightly uncomfortable</span>
+                                <span>Uncomfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
-                        <div class="mb-3">
+                            <div class="mb-3">
                                 <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a3" />
-                                <span>Natural</span>
+                                <span>Comfortable</span>
                             </div>
                         </label>
                         <label class="tm-q-choice">
                             <div class="mb-3">
                                 <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a4" />
-                                <span>Slightly comfortable</span>
-                            </div>
-                        </label>
-                        <label class="tm-q-choice">
-                            <div class="mb-3">
-                                <input class="tm-radio-group-1 with-gap" name="q2" type="radio" value="q2_a5" />
                                 <span>Very comfortable</span>
                             </div>
                         </label>
@@ -167,14 +161,14 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
                                 <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a1" required/>
-                                <span>Stroop Testing (Task1)</span>
+                                <span>Stroop Color Testing (Task1)</span>
                             </div>
                             <img src="img/img-1x1-1.png" alt="Image" class="img-fluid" width = "200" height = "200">
                         </label>
                         <label class="tm-q-choice tm-q-choice-2-col">
                             <div class="mb-3">
                                 <input type="checkbox" name="q4[]" class="filled-in tm-checkbox" value="q4_a2" required/>
-                                <span>Trail Marking (Task2)</span>
+                                <span>Schulte Table Test (Task2)</span>
                             </div>
                             <img src="img/img-1x1-2.png" alt="Image" class="img-fluid" width = "200" height = "200">
                         </label>
