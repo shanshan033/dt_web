@@ -2,7 +2,13 @@
 
 **Aim**: This website contained four attention-based tasks, including Stroop Color task, Dot Cancellation task, Schult Table task and Mouse Tracking task.
 
-**Technique**: Bootstrap, Vue.js, Materalize and FFForm.js
+**Technique**: Bootstrap, Vue.js, Materalize, FFForm.js and PHP
+
+**Highlight**
+- Randomzation
+- Verification
+- Smooth interactive interface
+- Mouse tracking task
 
 **Procudure of the website:**
 1. Register an account frist
