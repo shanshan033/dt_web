@@ -20,3 +20,4 @@
 7. Finish Mouse Tracking task
 8. Complete questionnaire B
 
+You can access the website through [Online Attention Testing](http://3.18.142.62/dt_web/login/login.html).
