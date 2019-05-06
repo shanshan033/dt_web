@@ -46,20 +46,12 @@ if(empty($_SESSION["name"]))               //判断session里面是不是存储�
                     width="1024" height="568"
                     ref="picture_canvas">
             </canvas>
-<!-- 
-            <button type="button"
-                    class="w3-btn w3-red w3-text-white w3-xlarge"
-                    style="width: 70%; margin: 10px;"
-                    @click="dialogShowed ? hideDialog() : execDialog('mousemap')"
-                    ref="btn">
-                    Finish
-            </button> -->
 
-        	<!-- <img src="img/task1.jpg" style="height: 100%; width: 100%;"> -->
+            <b style="width: 70%; margin: 10px;">
+                    Tips: Follow a curve line by using touch bar. After finishing following the line, please click "ESC" button ASAP! 
+            </b>
+
         </div>
-
-
-
 
         <div class="footer">
             <div class="footer-name" >

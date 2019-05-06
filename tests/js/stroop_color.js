@@ -113,10 +113,6 @@ var x = setInterval(function() {
     // Generate random test
     generate();
 
-
-
-
-
         
     $(document).on('click', "button", function() {
         var currentTime = new Date();
@@ -139,7 +135,6 @@ var x = setInterval(function() {
         
         // Add information into ClickStats constructor 
         click = new ClickStats(TestNumber, time, flag);
-        console.log(click.question + " " + click.time + " " + click.err);
         // Push click into clicks array
         clicks.push(click);
             
